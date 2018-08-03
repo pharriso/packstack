@@ -60,7 +60,7 @@
 
 - name: Create key
   os_keypair: 
-    name: test-key 
+    name: mykeypair
     public_key_file: /root/.ssh/id_rsa.pub
 
 - name: Launch cirros instance

@@ -9,7 +9,7 @@
   tags: packstack
 
 - name: Generate packstack answer file
-  shell: packstack --gen-answer-file=/root/answers.txt --keystone-admin-passwd=redhat123 --provision-demo=n --os-neutron-ovs-bridge-interfaces=br-ex:eth0 --os-neutron-ovs-bridge-mappings=physnet1:br-ex
+  shell: packstack --gen-answer-file=/root/answers.txt --keystone-admin-passwd=redhat123 --provision-demo=n --os-heat-install=y --os-neutron-ovs-bridge-interfaces=br-ex:eth0 --os-neutron-ovs-bridge-mappings=physnet1:br-ex
   args:
     creates: /root/answers.txt
   tags: packstack
