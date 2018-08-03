@@ -1,11 +1,6 @@
 ---
 
-- name: Install shade
-  yum:
-    name: python2-shade
-    state: present
-
-- name: Upload cirros image
+- name: Upload image
   os_image: 
     name: "{{ image_name }}" 
     disk_format: qcow2 
@@ -16,6 +11,7 @@
   os_network: 
     name: internal 
     state: present
+    
   
 - name: Create internal subnet
   os_subnet: 
@@ -29,6 +25,8 @@
     name: external 
     state: present 
     external: true
+    provider_network_type: flat
+    provider_physical_network: physnet1
   
 - name: Create external subnet
   os_subnet: 

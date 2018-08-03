@@ -20,3 +20,7 @@
     creates: /root/keystonerc_admin
   tags: packstack
 
+- name: Install shade
+  yum:
+    name: python2-shade
+    state: present

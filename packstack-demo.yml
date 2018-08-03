@@ -3,4 +3,4 @@
 - hosts: packstack
   connection: local
   roles:
-    - packstack
+    - packstack-demo
