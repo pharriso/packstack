@@ -1,0 +1,7 @@
+image_name: cirros
+image_file: /root/cirros-0.4.0-x86_64-disk.img
+
+external_cidr: 10.50.0.0/24
+external_gateway: 10.50.0.2
+external_pool_start: 10.50.0.87
+external_pool_end: 10.50.0.89

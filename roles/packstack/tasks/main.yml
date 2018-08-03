@@ -1,0 +1,22 @@
+--- 
+
+- name: Disable NetworkManager
+  service: name=NetworkManager state=stopped enabled=no
+  tags: packstack
+
+- name: Install packstack Package
+  yum: name=openstack-packstack state=present
+  tags: packstack
+
+- name: Generate packstack answer file
+  shell: packstack --gen-answer-file=/root/answers.txt --keystone-admin-passwd=redhat123 --provision-demo=n --os-neutron-ovs-bridge-interfaces=br-ex:eth0 --os-neutron-ovs-bridge-mappings=physnet1:br-ex
+  args:
+    creates: /root/answers.txt
+  tags: packstack
+
+- name: Run packstack
+  shell: packstack --answer-file=/root/answers.txt
+  args:
+    creates: /root/keystonerc_admin
+  tags: packstack
+
